@@ -1,3 +1,13 @@
 <div style="width: 1400px; margin: 0 auto;">
     <h2 style="color: red;">테스트 페이지입니다.</h2>
+    <form id="frm" action="test2.ejs" onsubmit="return submitCheck();">
+        <input type="text" id="test">
+        <button type="submit">확인</button>
+    </form>
 </div>
+<script>
+    function submitCheck(){
+        alert("test");
+        return false;
+    }
+</script>
