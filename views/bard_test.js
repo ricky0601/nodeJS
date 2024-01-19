@@ -9,8 +9,10 @@ async function testAssistant() {
     // ...
 
     // Send a query to Bard
-    const response = await assistant.getBardResponse('이미지도 분석해줄수 있어?');
+    let question = document.getElementById("search").value;
+    const response = await assistant.getBardResponse(question);
     console.log('Bard:', response.content);
+    alert('Bard:', response.content);
   } catch (error) {
     console.error('Error:', error);
     

@@ -16,4 +16,4 @@ app.listen(3000, function(){
     console.log("server running");
 });
 
-router.use('/bootstrap', express.static(path.join(__dirname, "../node_modules/bootstrap/dist")));
+//router.use('/bootstrap', express.static(path.join(__dirname, "../node_modules/bootstrap/dist")));
