@@ -9,7 +9,7 @@ async function testAssistant() {
     // ...
 
     // Send a query to Bard
-    let question = document.getElementById("search").value;
+    let question = "오늘 날씨는 어떄?";
     const response = await assistant.getBardResponse(question);
     console.log('Bard:', response.content);
     alert('Bard:', response.content);
