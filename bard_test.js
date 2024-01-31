@@ -1,22 +1,32 @@
-const { BardAPI } = require('bard-api-node');
+const axios = require('axios');
 
-async function testAssistant() {
+const makeRequest = async () => {
+  const options = {
+    method: 'POST',
+    url: 'https://chatgpt-42.p.rapidapi.com/geminipro',
+    headers: {
+      'content-type': 'application/json',
+      'X-RapidAPI-Key': '4fd38d99a4msh99a967594d10815p1c2b65jsn2ad399dcef24',
+      'X-RapidAPI-Host': 'chatgpt-42.p.rapidapi.com'
+    },
+    data: {
+      messages: [
+        {
+          role: 'user',
+          content: '사진을 주면 분석 해줄 수 있어?'
+        }
+      ],
+      web_access: false
+    }
+  };
+
   try {
-    const assistant = new BardAPI();
-
-    // Set session information for authentication
-    await assistant.setSession('__Secure-3PSID', 'fgis1XCBtuArbE_nrxFaeyOzky3sS0Bk7tYC_4476VdxbqeixGpPc1hLTz_IRwRZ63OSSw.'); // or '__Secure-3PSID'
-    // ...
-    const url = "쿠팡";
-    // Send a query to Bard
-    let question = url + " 사이트 주소를 알려줘";
-    const response = await assistant.getBardResponse(question);
-    console.log('Bard:', response.content);
-    alert('Bard:', response.content);
+    const response = await axios.request(options);
+    console.log(response.data);
   } catch (error) {
-    console.error('Error:', error);
-    
+    console.error(error);
   }
-}
+};
 
-testAssistant();
+// Call the asynchronous function
+makeRequest();
