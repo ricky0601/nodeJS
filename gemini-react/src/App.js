@@ -22,7 +22,7 @@ function fileToGenerativePart(file) {
 
 async function run(setResult) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
-  const prompt = "이 사진을 시각장애인들도 알 수 있게 alt 속성을 작성해줘";
+  const prompt = "이 제품을 시각장애인이 알수 있게 alt 속성을 작성해줘";
 
   const imageInput = document.getElementById("imageInput");
   const files = imageInput.files;
@@ -57,6 +57,7 @@ const App = () => {
       <input type="file" id="imageInput" multiple />
       <button onClick={handleRun}>alt 생성</button>
       <button onClick={handleSpeak}>TTS 실행</button>
+      <br/>
       <span className="result">{result}</span>
     </div>
   );
